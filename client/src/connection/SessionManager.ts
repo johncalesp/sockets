@@ -19,7 +19,6 @@ export class SessionManager {
     }
 
     send_message(){
-        console.log("connected");
         this.connection.write('Hello, server! Love, Client.');
     }
 
@@ -28,7 +27,7 @@ export class SessionManager {
         this.connection.connect(
             this.port, 
             this.addr,
-            this.send_message.bind(this)
+            () => {console.log("connected")}
         )
         
     }
